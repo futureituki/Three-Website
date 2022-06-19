@@ -1,0 +1,22 @@
+@media screen and (max-width:767.98px) {
+  .h1{
+    font-size: 4rem;
+  }
+  .action {
+    font-size: 6rem;
+  }
+  .p {
+    font-size: 2rem;
+  }
+}
+@media screen and (min-width:767px) {
+  .h1{
+    font-size: 8rem;
+  }
+  .action {
+    font-size: 10rem;
+  }
+  .p{
+    font-size: 4rem;
+  }
+}

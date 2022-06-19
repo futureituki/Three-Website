@@ -1,10 +1,17 @@
-import { ChakraProvider } from "@chakra-ui/react"
 
-function MyApp({ Component, pageProps }) {
+import { Canvas } from "@react-three/fiber"
+import NavBar from "../component/navbar"
+import Header from "../component/navbar/nav"
+import '../styles/styles.css'
+function MyApp({ Component, pageProps, router }) {
   return (
-    <ChakraProvider>
+    <>
+      {/* <NavBar router={router}/> */}
+      <Header/>
+      <Canvas gl={{ antialias: false }} dpr={[1, 1.5]}>
       <Component {...pageProps} />
-    </ChakraProvider>
+      </Canvas>
+    </>
   )
 }
 
