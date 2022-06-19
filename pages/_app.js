@@ -1,4 +1,4 @@
-
+import '../styles/global.css'
 import { Canvas } from "@react-three/fiber"
 import Header from "../component/navbar/nav"
 // import '../styles/styles.css'
