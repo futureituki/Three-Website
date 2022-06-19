@@ -2,7 +2,7 @@
 import { Canvas } from "@react-three/fiber"
 import NavBar from "../component/navbar"
 import Header from "../component/navbar/nav"
-import '../styles/styles.css'
+// import '../styles/styles.css'
 function MyApp({ Component, pageProps, router }) {
   return (
     <>
