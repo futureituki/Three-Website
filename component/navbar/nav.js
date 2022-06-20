@@ -16,11 +16,7 @@ export default function Header() {
         </div>
         <nav className={styles.nav}>
           <ul>
-            <li className={styles.li}>
-              <Link href="/">
-              <a>メニュー</a>
-              </Link>
-            </li>
+              <Scroll to="web" smooth={true}>Web</Scroll>
             <li className={styles.li}>
               <Link href="/">
               <a>メニュー</a>
@@ -48,14 +44,7 @@ export default function Header() {
             <span></span>
             <p>Close</p>
           </div>
-          <li>
-            <Link href="/">
-              <a>
-                <p className={styles.mainTitle}>メニュー</p>
-                <p className={styles.subTitle}>私のメニュー</p>
-              </a>
-            </Link>
-          </li>
+          <Scroll to="web" smooth={true}>コンセプト</Scroll>
           <li>
             <Link href="/">
             <a>

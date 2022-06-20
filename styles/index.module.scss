@@ -1,17 +1,50 @@
-
+.image {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  &[data-load='done'] {
+    opacity: 1;
+  }
+}
+.img{
+  width: 200px;
+    height: 100px;
+    position: absolute;
+    left: 150px;
+    top: 190px;
+  background-image: url("/img2.jpeg");
+}
 .title {
   position: absolute;
   // fontSize: hovered ? "17em" : "11em",
   top: 60vh;
   transition: all 1s ease;
   left: 1.5em;
+  mix-blend-mode: difference; /* オーバーレイを指定 */
 }
-.subtitle{
-  position: absolute;
-  transition: all 2s ease;
-  top: 140vh;
-  left: 40vw;
+.subtitleContainer{
+  position: relative;
+  --maskX:0;
+  --maskY:50;
 }
+  .subtitle{
+    position: absolute;
+    top: 0;
+    left: 0;
+    color:#bae48f;
+    width: 100%;
+    z-index: 10;
+    height:100%;
+    transition: all 0.8s cubic-bezier(0.165,0.84,0.44,1); 
+    // clip-path: polygon(0 0, calc(var(--maskX) * 1%) 0, calc(var(--maskY) * 1%) 100%, 0 100%);
+    clip-path: polygon(0 0,calc(var(--maskX) * 1% + (var(--maskY) - 50) * .4%) 0,calc(var(--maskX) * 1% + (var(--maskY) - 50) * -.4%) 100%,0 100%)
+  }
+  
+  .titleWrapper {
+    color:#3e5c8f;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+  }
 @media screen and (max-width:767.98px) {
   .h1{
     font-size: 4rem;
