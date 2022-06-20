@@ -17,8 +17,8 @@ function Images() {
 
   return (
     <group ref={group}>
-      <Image url="/img1.jpeg" scale={[4, height, 1]} position={[-1, 0, 1]} />
-      <Image url="/img2.jpeg" scale={3} position={[2, 0, 1]} />
+      <Image url="/img1.jpeg" scale={[2, height - 5, 1]} position={[-2, 0, 1]} />
+      <Image url="/img2.jpeg" scale={3} position={[1, -2, 1]} />
       <Image
         url="/img3.jpeg"
         scale={[1, 3.5, 1]}
@@ -39,7 +39,7 @@ function Images() {
         scale={[1.4, 2, 1]}
         position={[-1, -height + 1, 3.2]}
       />
-      <Image url="/nature.jpeg" scale={[1.4, 2, 1]} position={[1.3, 0, 3.2]} />
+      <Image url="/nature.jpeg" scale={[2, 2, 1]} position={[1.3, 0, 3.2]} />
     </group>
   );
 }
@@ -54,31 +54,16 @@ function App() {
         </Scroll>
         <Scroll html>
           <h1
-            className={hovered ? style.action : style.h1}
+            className={`${style.title} {${hovered} ? ${style.action} : ${style.h1}}`}
             onPointerOver={(e) => setHover(true)}
             onPointerOut={(e) => setHover(false)}
-            style={{
-              color: hovered ? "pink" : "white",
-              position: "absolute",
-              // fontSize: hovered ? "17em" : "11em",
-              top: "60vh",
-              transition: "all 1s ease",
-              left: "1.5em",
-            }}
           >
             Create
           </h1>
           <h1
-            className={hovered ? style.action : style.h1}
+            className={`${style.subtitle} {${hovered} ? ${style.action} : ${style.h1}}`}
             onPointerOver={(e) => setHover(true)}
             onPointerOut={(e) => setHover(false)}
-            style={{
-              position: "absolute",
-              transition: "all 1s ease",
-              // fontSize: hovered ? "11em" : "14em",
-              top: "140vh",
-              left: "40vw",
-            }}
           >
             WebSite<br></br>
             <p
