@@ -13,13 +13,17 @@
     top: 190px;
   background-image: url("/img2.jpeg");
 }
+.link {
+  color: #fff;
+  display: block;
+  margin: 10px 0;
+}
 .title {
   position: absolute;
   // fontSize: hovered ? "17em" : "11em",
   top: 60vh;
   transition: all 1s ease;
   left: 1.5em;
-  mix-blend-mode: difference; /* オーバーレイを指定 */
 }
 .subtitleContainer{
   position: relative;
@@ -30,7 +34,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    color:#bae48f;
+    color:#9c9c9c;
     width: 100%;
     z-index: 10;
     height:100%;
@@ -40,32 +44,36 @@
   }
   
   .titleWrapper {
-    color:#3e5c8f;
+    color:#ffffff;
     cursor: pointer;
     position: relative;
     z-index: 10;
   }
 @media screen and (max-width:767.98px) {
   .h1{
-    font-size: 4rem;
-    color: pink;
+    margin:10px 0;
+    font-size: 6rem;
   }
   .action {
     font-size: 6rem;
-    color: white;
   }
   .p {
-    font-size: 2rem;
-  }
+    top: 70vh;
+    width: 400px;
+    font-size: .9rem;
+    }
 }
 @media screen and (min-width:767px) {
   .h1{
-    font-size: 8rem;
+    margin:10px 0;
+    font-size: 7rem;
   }
   .action {
-    font-size: 10rem;
+    font-size: 9rem;
   }
   .p{
-    font-size: 4rem;
+    width: 600px;
+    top:90vh;
+    left:50%;
   }
 }

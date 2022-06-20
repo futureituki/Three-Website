@@ -3,10 +3,13 @@ import { useThree, useFrame } from "@react-three/fiber";
 import Header from "../component/navbar/nav";
 import { useScroll, Image, ScrollControls, Scroll } from "@react-three/drei";
 import style from "../styles/index.module.scss";
+import Loader from "../component/load";
+import Link from "next/link";
 function Images() {
   const { width, height } = useThree((state) => state.viewport);
   const data = useScroll();
   const group = useRef();
+  // useFrame((state)=>state.rotaion.x +=0.1)
   useFrame(() => {
     group.current.children[0].material.zoom = 1 + data.range(0, 1 / 3) / 3;
     group.current.children[1].material.zoom = 1 + data.range(0, 1 / 3) / 3;
@@ -26,9 +29,9 @@ function Images() {
         key="1"
         className={style.image}
         onLoad={onLoad}
-        url="/img1.jpeg"
-        scale={[2, height - 5, 1]}
-        position={[-2, 0, 1]}
+        url="/sun.jpeg"
+        scale={[1, height - 5, 1]}
+        position={[-0.8, 0, 1]}
       />
       <Image
         className={style.image}
@@ -40,14 +43,14 @@ function Images() {
       <Image
         className={style.image}
         onLoad={onLoad}
-        url="/img3.jpeg"
+        url="/img5.jpeg"
         scale={[1, 3.5, 1]}
-        position={[-2.3, -height, 2]}
+        position={[-1, -height, 2]}
       />
       <Image
         url="/img3.jpeg"
-        scale={[1, 2.7, 1]}
-        position={[-1.4, -height - 0.7, 1]}
+        scale={[-1, 2.7, 1]}
+        position={[0, -height - 0.7, 1]}
       />
       <Image
         url="/img4.jpeg"
@@ -66,32 +69,32 @@ function Images() {
 
 function App() {
   const [hovered, setHover] = useState(false);
-  const [x,setX] = useState(0);
-  const [y,setY] = useState(0);
+  const [x, setX] = useState(0);
+  const [y, setY] = useState(0);
   const onMovie = (e) => {
-        if (ref.current) {
-          const width = ref.current.clientWidth;
-          const height = ref.current.clientHeight;
-          const oX = (e.nativeEvent.offsetX / width) * 100;
-          const oY = (e.nativeEvent.offsetY / height) * 100;
-          setX(oX)
-          setY(oY)
-        }
-  }
+    if (ref.current) {
+      const width = ref.current.clientWidth;
+      const height = ref.current.clientHeight;
+      const oX = (e.nativeEvent.offsetX / width) * 100;
+      const oY = (e.nativeEvent.offsetY / height) * 100;
+      setX(oX);
+      setY(oY);
+    }
+  };
   const makesyle = {
-    "--maskX":x,
-    "--maskY":y,
-  }
+    "--maskX": x,
+    "--maskY": y,
+  };
   const ref = useRef();
   return (
-    <Suspense fallback={null}>
-      <ScrollControls damping={3} pages={2} horizontal={false} infinite={false}>
+    <Suspense fallback={<Loader />}>
+      <ScrollControls damping={3} pages={5} horizontal={false} infinite={false}>
         <Scroll>
           <Images />
         </Scroll>
         <Scroll html>
           <h1
-          style={{ transform: `translate(${x}px,${y}px)`}}
+            style={{ transform: `translate(${x}px,${y}px)` }}
             onMouseMove={onMovie}
             onTouchMove={onMovie}
             // ref={ref}
@@ -101,34 +104,57 @@ function App() {
           >
             Create
           </h1>
-          <div onTouchMove={onMovie} onMouseMove={onMovie} style={makesyle} ref={ref} className={style.subtitleContainer}>
-          <h1
-            className={`${style.titleWrapper}`}
-            onPointerOver={(e) => setHover(true)}
-            onPointerOut={(e) => setHover(false)}
+          <p
+          className={style.p}
+            style={{
+              position: "absolute",
+              letterSpacing: "4px",
+              lineHeight: "24px",
+              margin: "20px 10px",
+              color: "white",
+            }}
           >
-            WebSite
+            I work on creating websites and web apps every day. Keep in mind
+            high quality output. Please come to my Github.
+            <Link href="https://github.com/futureituki">
+            <a className={style.link}>https://github.com/futureituki</a>
+            </Link>
+          </p>
+          <div
+            onTouchMove={onMovie}
+            onMouseMove={onMovie}
+            style={makesyle}
+            ref={ref}
+            className={style.subtitleContainer}
+          >
+            <h1
+              className={`${style.titleWrapper} ${style.h1}`}
+              onPointerOver={(e) => setHover(true)}
+              onPointerOut={(e) => setHover(false)}
+            >
+              WebSite
             </h1>
-          <h1
-            className={`${style.subtitle}`}
-            onPointerOver={(e) => setHover(true)}
-            onPointerOut={(e) => setHover(false)}
-          >
-            WebSite
+            <h1
+              className={`${style.subtitle} ${style.h1}`}
+              onPointerOver={(e) => setHover(true)}
+              onPointerOut={(e) => setHover(false)}
+            >
+              WebSite
             </h1>
           </div>
-            <p
-              style={{
-                fontSize: ".7rem",
-                letterSpacing: "4px",
-                lineHeight: "24px",
-                margin: "20px 10px",
-              }}
-            >
-              I am aiming to be a front-end engineer. I want your power there.
-              Please give us feedback on this website.
-            </p>
           <p
+          className={style.p}
+            style={{
+              letterSpacing: "4px",
+              lineHeight: "24px",
+              margin: "20px 10px",
+              color: "white",
+            }}
+          >
+            I am aiming to be a front-end engineer. I want your power there.
+            Please give us feedback on this website.
+          </p>
+          {/* <p
             className={style.p}
             style={{
               color: "white",
@@ -140,7 +166,7 @@ function App() {
             }}
           >
             Development
-          </p>
+          </p> */}
         </Scroll>
       </ScrollControls>
     </Suspense>
