@@ -69,11 +69,6 @@ function Images() {
         scale={[1.4, 2, 1]}
         position={[1.3, -height - 0.3, 3.2]}
       />
-      <Image
-        url="/material_texture__720.png"
-        scale={[1.4, 2, 1]}
-        position={[-1, -height + 1, 3.2]}
-      />
       <Image url="/nature.jpeg" scale={[2, 2, 1]} position={[1.3, 0, 3.2]} />
       <Scene path={"/assets/cokacora.glb"} scale={[0.01, 0.01, 0.01]} position={[0,-15,1]} />
     </group>
