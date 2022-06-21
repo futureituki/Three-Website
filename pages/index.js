@@ -1,10 +1,20 @@
 import { useRef, Suspense, useState } from "react";
 import { useThree, useFrame } from "@react-three/fiber";
 import Header from "../component/navbar/nav";
-import { useScroll, Image, ScrollControls, Scroll } from "@react-three/drei";
+import {
+  useScroll,
+  Text,
+  Image,
+  ScrollControls,
+  Scroll,
+  Text3D,
+} from "@react-three/drei";
 import style from "../styles/index.module.scss";
 import Loader from "../component/load";
 import Link from "next/link";
+import { useRotate } from "../component/hook/useRotate";
+import Scene, { Model } from "../component/model";
+import { AmbientLight } from "three";
 function Images() {
   const { width, height } = useThree((state) => state.viewport);
   const data = useScroll();
@@ -39,6 +49,8 @@ function Images() {
         url="/img2.jpeg"
         scale={3}
         position={[1, -2, 1]}
+        transparent
+        opacity={0.6}
       />
       <Image
         className={style.image}
@@ -63,14 +75,17 @@ function Images() {
         position={[-1, -height + 1, 3.2]}
       />
       <Image url="/nature.jpeg" scale={[2, 2, 1]} position={[1.3, 0, 3.2]} />
+      <Scene path={"/assets/cokacora.glb"} scale={[0.01, 0.01, 0.01]} position={[0,-15,1]} />
     </group>
   );
 }
 
 function App() {
   const [hovered, setHover] = useState(false);
+  const rotate = useRotate([0, 0.1, 0.3]);
   const [x, setX] = useState(0);
   const [y, setY] = useState(0);
+  const [scroll, setScroll] = useState(0);
   const onMovie = (e) => {
     if (ref.current) {
       const width = ref.current.clientWidth;
@@ -91,6 +106,19 @@ function App() {
       <ScrollControls damping={3} pages={5} horizontal={false} infinite={false}>
         <Scroll>
           <Images />
+          <Text
+            ref={rotate}
+            color="#fff"
+            fontSize={1}
+            maxWidth={10}
+            lineHeight={1}
+            letterSpacing={0.02}
+            textAlign={"left"}
+            anchorX="center"
+            anchorY="middle"
+          >
+            CREATIvE
+          </Text>
         </Scroll>
         <Scroll html>
           <h1
@@ -105,7 +133,7 @@ function App() {
             Create
           </h1>
           <p
-          className={style.p}
+            className={style.p}
             style={{
               position: "absolute",
               letterSpacing: "4px",
@@ -117,7 +145,7 @@ function App() {
             I work on creating websites and web apps every day. Keep in mind
             high quality output. Please come to my Github.
             <Link href="https://github.com/futureituki">
-            <a className={style.link}>https://github.com/futureituki</a>
+              <a className={style.link}>https://github.com/futureituki</a>
             </Link>
           </p>
           <div
@@ -143,7 +171,7 @@ function App() {
             </h1>
           </div>
           <p
-          className={style.p}
+            className={style.p}
             style={{
               letterSpacing: "4px",
               lineHeight: "24px",
@@ -154,19 +182,14 @@ function App() {
             I am aiming to be a front-end engineer. I want your power there.
             Please give us feedback on this website.
           </p>
-          {/* <p
-            className={style.p}
-            style={{
-              color: "white",
-              position: "absolute",
-              // fontSize: hovered ? "11em" : "14em",
-              top: "90vh",
-              left: "20vw",
-              writingMode: "vertical-rl",
-            }}
+          <h1
+            style={{ transform: `translateY(${y}px)`, height: "400px" }}
+            className={`${style.like}`}
+            onPointerOver={(e) => setHover(true)}
+            onPointerOut={(e) => setHover(false)}
           >
-            Development
-          </p> */}
+            I like this
+          </h1>
         </Scroll>
       </ScrollControls>
     </Suspense>
