@@ -70,7 +70,8 @@ function Images() {
         position={[1.3, -height - 0.3, 3.2]}
       />
       <Image url="/nature.jpeg" scale={[2, 2, 1]} position={[1.3, 0, 3.2]} />
-      <Scene path={"/assets/cokacora.glb"} scale={[0.01, 0.01, 0.01]} position={[0,-15,1]} />
+      <Scene path={"/assets/cokacora.glb"} scale={[0.02, 0.02, 0.02]} position={[0,-17,1]} />
+      <Scene path={"/assets/mac.glb"} scale={[0.009, 0.009, 0.009]} position={[-0.7,-19,1]} />
     </group>
   );
 }

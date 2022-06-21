@@ -17,6 +17,7 @@ canvas{
   height:100vh;
 }
 h1 {
+  font-family: 'Times New Roman', Times, serif;
   font-weight: 400;
   letter-spacing: -0.05em;
   line-height: 0.7em;

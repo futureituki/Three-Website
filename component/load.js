@@ -7,10 +7,10 @@ export default function Loader() {
     <Html center>
       <Spinner
         position="absolute"
-        top="35%"
+        top="40%"
         color="white"
-        left="30%"
-        boxSize={100}
+        left="20%"
+        boxSize={50}
       />
     </Html>
   );
