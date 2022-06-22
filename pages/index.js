@@ -179,12 +179,19 @@ function App() {
             Please give us feedback on this website.
           </p>
           <h1
-            style={{ transform: `translateY(${y}px)`, height: "400px" }}
             className={`${style.like}`}
-            onPointerOver={(e) => setHover(true)}
-            onPointerOut={(e) => setHover(false)}
           >
             I like this
+          </h1>
+          <h1
+            className={`${style.drink}`}
+          >
+            Cola
+          </h1>
+          <h1
+            className={`${style.pasokon}`}
+          >
+            Mac Book
           </h1>
         </Scroll>
       </ScrollControls>
