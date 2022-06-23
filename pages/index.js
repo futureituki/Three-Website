@@ -1,6 +1,5 @@
 import { useRef, Suspense, useState } from "react";
 import { useThree, useFrame } from "@react-three/fiber";
-import Header from "../component/navbar/nav";
 import Mac from "../component/mac";
 import {
   useScroll,
@@ -13,9 +12,8 @@ import style from "../styles/index.module.scss";
 import Loader from "../component/load";
 import Link from "next/link";
 import { useRotate } from "../component/hook/useRotate";
-import Scene, { Model } from "../component/model/model";
-import { AmbientLight } from "three";
-import { useEffect } from "react";
+import Scene from "../component/model/model";
+import Spheres from "../component/sphere";
 function Images() {
   const { width, height } = useThree((state) => state.viewport);
   const data = useScroll();
@@ -76,14 +74,11 @@ function Images() {
         scale={[0.02, 0.02, 0.02]}
         position={[.8, -17, 1]}
       />
-      {/* <Scene
-        path={"/assets/mac.glb"}
-        scale={[0.009, 0.009, 0.009]}
-        position={[-0.7, -19, 1]}
-      /> */}
       <group position={[-.7,-18,-10]}>
       <Mac/>
+      <Spheres/>
       </group>
+
     </group>
   );
 }
