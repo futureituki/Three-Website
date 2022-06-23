@@ -1,20 +1,19 @@
 import { useRef, Suspense, useState } from "react";
 import { useThree, useFrame } from "@react-three/fiber";
 import Header from "../component/navbar/nav";
-import Model2 from "../component/model2";
+import Mac from "../component/mac";
 import {
   useScroll,
   Text,
   Image,
   ScrollControls,
   Scroll,
-  Text3D,
 } from "@react-three/drei";
 import style from "../styles/index.module.scss";
 import Loader from "../component/load";
 import Link from "next/link";
 import { useRotate } from "../component/hook/useRotate";
-import Scene, { Model } from "../component/model";
+import Scene, { Model } from "../component/model/model";
 import { AmbientLight } from "three";
 import { useEffect } from "react";
 function Images() {
@@ -75,15 +74,15 @@ function Images() {
       <Scene
         path={"/assets/cokacora.glb"}
         scale={[0.02, 0.02, 0.02]}
-        position={[0, -17, 1]}
+        position={[.8, -17, 1]}
       />
       {/* <Scene
         path={"/assets/mac.glb"}
         scale={[0.009, 0.009, 0.009]}
         position={[-0.7, -19, 1]}
       /> */}
-      <group position={[0,-18,-10]}>
-      <Model2/>
+      <group position={[-.7,-18,-10]}>
+      <Mac/>
       </group>
     </group>
   );

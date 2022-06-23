@@ -2,8 +2,7 @@ import * as THREE from 'three'
 import React, { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Html, useGLTF } from '@react-three/drei'
-
-function Model2(props) {
+function Mac(props) {
   const group = useRef()
   // Load model
   const { nodes, materials } = useGLTF('/assets/mac-draco.glb')
@@ -26,7 +25,7 @@ function Model2(props) {
             {/* Drei's HTML component can now "hide behind" canvas geometry */}
             <Html className="content" rotation-x={-Math.PI / 2} position={[0, 0.05, -0.09]} transform occlude>
               <div className="wrapper">
-                <h1>Hello World</h1>
+                <h1 style={{color:"black",fontSize:"1.7rem"}}>Thanks for watching</h1>             
               </div>
             </Html>
           </mesh>
@@ -42,4 +41,4 @@ function Model2(props) {
   )
 }
 
-export default Model2
+export default Mac
