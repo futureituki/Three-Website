@@ -16,6 +16,7 @@
     "@react-three/drei": "^9.13.2",
     "@react-three/fiber": "^8.0.26",
     "framer-motion": "^6",
+    "gsap": "^3.10.4",
     "next": "12.1.6",
     "next-transpile-modules": "^9.0.0",
     "react": "18.2.0",

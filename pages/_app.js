@@ -1,8 +1,18 @@
 import '../styles/global.css'
 import { Canvas, ambientLight, spotLight } from "@react-three/fiber"
+import { useRef } from 'react';
+import { useEffect } from 'react';
+import gsap from 'gsap';
 // import '../styles/styles.css'
 import { ChakraProvider } from '@chakra-ui/react'
 function MyApp({ Component, pageProps }) {
+  // const div = useRef();
+  // useEffect(()=> {
+  //   gsap.to(div.current, {
+  //     opacity:0,
+  //     delay:2,
+  //   },[div])
+  //  },[])
   return (
     <>
     <ChakraProvider>

@@ -1,6 +1,7 @@
 import { useRef, Suspense, useState } from "react";
 import { useThree, useFrame } from "@react-three/fiber";
 import Header from "../component/navbar/nav";
+import Model2 from "../component/model2";
 import {
   useScroll,
   Text,
@@ -15,6 +16,7 @@ import Link from "next/link";
 import { useRotate } from "../component/hook/useRotate";
 import Scene, { Model } from "../component/model";
 import { AmbientLight } from "three";
+import { useEffect } from "react";
 function Images() {
   const { width, height } = useThree((state) => state.viewport);
   const data = useScroll();
@@ -70,8 +72,19 @@ function Images() {
         position={[1.3, -height - 0.3, 3.2]}
       />
       <Image url="/nature.jpeg" scale={[2, 2, 1]} position={[1.3, 0, 3.2]} />
-      <Scene path={"/assets/cokacora.glb"} scale={[0.02, 0.02, 0.02]} position={[0,-17,1]} />
-      <Scene path={"/assets/mac.glb"} scale={[0.009, 0.009, 0.009]} position={[-0.7,-19,1]} />
+      <Scene
+        path={"/assets/cokacora.glb"}
+        scale={[0.02, 0.02, 0.02]}
+        position={[0, -17, 1]}
+      />
+      {/* <Scene
+        path={"/assets/mac.glb"}
+        scale={[0.009, 0.009, 0.009]}
+        position={[-0.7, -19, 1]}
+      /> */}
+      <group position={[0,-18,-10]}>
+      <Model2/>
+      </group>
     </group>
   );
 }
@@ -82,6 +95,8 @@ function App() {
   const [x, setX] = useState(0);
   const [y, setY] = useState(0);
   const [scroll, setScroll] = useState(0);
+  const [hidden, set] = useState();
+
   const onMovie = (e) => {
     if (ref.current) {
       const width = ref.current.clientWidth;
@@ -101,6 +116,9 @@ function App() {
     <Suspense fallback={<Loader />}>
       <ScrollControls damping={3} pages={5} horizontal={false} infinite={false}>
         <Scroll>
+        {/* <group rotation={[0, Math.PI, 0]}>
+          <Model2 />
+       </group> */}
           <Images />
           <Text
             ref={rotate}
@@ -116,7 +134,16 @@ function App() {
             CREATIvE
           </Text>
         </Scroll>
-        <Scroll html>
+        <Scroll
+          html
+          occlude
+          onOcclude={set}
+          style={{
+            transition: "all 0.5s",
+            opacity: hidden ? 0 : 1,
+            transform: `scale(${hidden ? 0.5 : 1})`,
+          }}
+        >
           <h1
             style={{ transform: `translate(${x}px,${y}px)` }}
             onMouseMove={onMovie}
@@ -178,21 +205,9 @@ function App() {
             I am aiming to be a front-end engineer. I want your power there.
             Please give us feedback on this website.
           </p>
-          <h1
-            className={`${style.like}`}
-          >
-            I like this
-          </h1>
-          <h1
-            className={`${style.drink}`}
-          >
-            Cola
-          </h1>
-          <h1
-            className={`${style.pasokon}`}
-          >
-            Mac Book
-          </h1>
+          <h1 className={`${style.like}`}>I like this</h1>
+          <h1 className={`${style.drink}`}>Cola</h1>
+          <h1 className={`${style.pasokon}`}>Mac Book</h1>
         </Scroll>
       </ScrollControls>
     </Suspense>
