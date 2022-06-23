@@ -76,9 +76,11 @@ function Images() {
       />
       <group position={[-.7,-18,-10]}>
       <Mac/>
-      <Spheres/>
       </group>
-
+      <group position={[.5,-30,-10]}>
+      <Spheres/>
+      <Image opacity={.5} url="/7c336c05.jpeg" scale={[8, 8, 5]} position={[1.3, 0, 3.2]} />
+      </group>
     </group>
   );
 }
@@ -202,6 +204,7 @@ function App() {
           <h1 className={`${style.like}`}>I like this</h1>
           <h1 className={`${style.drink}`}>Cola</h1>
           <h1 className={`${style.pasokon}`}>Mac Book</h1>
+          <h1 className={`${style.pokemon}`}>Pokémon</h1>
         </Scroll>
       </ScrollControls>
     </Suspense>
