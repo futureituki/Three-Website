@@ -55,7 +55,7 @@ function Images() {
       <Image
         className={style.image}
         onLoad={onLoad}
-        url="/img5.jpeg"
+        url="/img1.jpeg"
         scale={[1, 3.5, 1]}
         position={[-1, -height, 2]}
       />
@@ -86,6 +86,18 @@ function Images() {
           scale={[8, 8, 5]}
           position={[1.3, 0, 3.2]}
         />
+      </group>
+      <group position={[0,-32,2]}>
+      <Text
+            color="#fff"
+            fontSize={.2}
+            maxWidth={10}
+            lineHeight={10}
+            letterSpacing={0.02}
+            textAlign={"center"}
+          >
+            Sato Itsuki ©︎2022.6.24
+          </Text>
       </group>
     </group>
   );
@@ -194,10 +206,6 @@ function App() {
           <h1 className={`${style.drink}`}>Cola</h1>
           <h1 className={`${style.pasokon}`}>Mac Book</h1>
           <h1 className={`${style.pokemon}`}>Pokémon</h1>
-          <Text3D fontSize={20} Color={"white"}>
-            <h4 className={style.footer}> Sato Itsuki ©︎2022.6.24</h4>
-            <meshNormalMaterial />
-          </Text3D>
         </Scroll>
       </ScrollControls>
     </Suspense>
