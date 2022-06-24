@@ -7,6 +7,7 @@ import {
   Image,
   ScrollControls,
   Scroll,
+  Text3D,
 } from "@react-three/drei";
 import style from "../styles/index.module.scss";
 import Loader from "../component/load";
@@ -72,14 +73,19 @@ function Images() {
       <Scene
         path={"/assets/cokacora.glb"}
         scale={[0.02, 0.02, 0.02]}
-        position={[.8, -17, 1]}
+        position={[0.8, -17, 1]}
       />
-      <group position={[-.7,-18,-10]}>
-      <Mac/>
+      <group position={[-0.7, -18, -10]}>
+        <Mac />
       </group>
-      <group position={[.5,-30,-10]}>
-      <Spheres/>
-      <Image opacity={.5} url="/7c336c05.jpeg" scale={[8, 8, 5]} position={[1.3, 0, 3.2]} />
+      <group position={[0.5, -30, -10]}>
+        <Spheres />
+        <Image
+          opacity={0.5}
+          url="/7c336c05.jpeg"
+          scale={[8, 8, 5]}
+          position={[1.3, 0, 3.2]}
+        />
       </group>
     </group>
   );
@@ -112,7 +118,7 @@ function App() {
     <Suspense fallback={<Loader />}>
       <ScrollControls damping={3} pages={5} horizontal={false} infinite={false}>
         <Scroll>
-        {/* <group rotation={[0, Math.PI, 0]}>
+          {/* <group rotation={[0, Math.PI, 0]}>
           <Model2 />
        </group> */}
           <Images />
@@ -151,16 +157,7 @@ function App() {
           >
             Create
           </h1>
-          <p
-            className={style.p}
-            style={{
-              position: "absolute",
-              letterSpacing: "4px",
-              lineHeight: "24px",
-              margin: "20px 10px",
-              color: "white",
-            }}
-          >
+          <p className={style.p2}>
             I work on creating websites and web apps every day. Keep in mind
             high quality output. Please come to my Github.
             <Link href="https://github.com/futureituki">
@@ -189,15 +186,7 @@ function App() {
               WebSite
             </h1>
           </div>
-          <p
-            className={style.p}
-            style={{
-              letterSpacing: "4px",
-              lineHeight: "24px",
-              margin: "20px 10px",
-              color: "white",
-            }}
-          >
+          <p className={style.p1}>
             I am aiming to be a front-end engineer. I want your power there.
             Please give us feedback on this website.
           </p>
@@ -205,6 +194,10 @@ function App() {
           <h1 className={`${style.drink}`}>Cola</h1>
           <h1 className={`${style.pasokon}`}>Mac Book</h1>
           <h1 className={`${style.pokemon}`}>Pokémon</h1>
+          <Text3D fontSize={20} Color={"white"}>
+            <h4 className={style.footer}> Sato Itsuki ©︎2022.6.24</h4>
+            <meshNormalMaterial />
+          </Text3D>
         </Scroll>
       </ScrollControls>
     </Suspense>

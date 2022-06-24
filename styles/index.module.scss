@@ -5,6 +5,17 @@
     opacity: 1;
   }
 }
+.p1, .p2 {
+  position: absolute;
+  letter-spacing:1.5px;
+  line-height:1.75;
+  margin: 20px 10px;
+  color: white;
+  font-size: .9rem;
+}
+.p1 {
+  left:50%;
+}
 .img{
   width: 200px;
     height: 100px;
@@ -60,7 +71,15 @@
     transform-origin: 50%;
     animation: circle .5s alternate infinite ease;
 }
-
+.footer {
+  font-size: 1.4rem;
+  letter-spacing: 1.5px;
+  color: white;
+  position: absolute;
+  top: 480vh;
+  left: 30%;
+  width: 100%;
+}
 @keyframes circle{
     0%{
         top:60px;
@@ -141,9 +160,10 @@
     position: absolute;
     // fontSize: hovered ? "17em" : "11em",
     top: 200vh;
-    font-size: 4rem;
+    font-size: 3rem;
     transition: all 1s ease;
     left: 20vh;
+    width:200px;
   }
   .drink {
     position: absolute;
@@ -177,11 +197,14 @@
   .action {
     font-size: 6rem;
   }
-  .p {
+  .p1 {
     top: 70vh;
-    width: 400px;
-    font-size: .9rem;
+    width: 250px;
+    left: 40%;
     }
+  .p2 {
+    top:10vh;
+  }
 }
 @media screen and (min-width:767px) {
   .h1{
@@ -191,9 +214,18 @@
   .action {
     font-size: 9rem;
   }
-  .p{
+  .p2{
     width: 600px;
     top:90vh;
-    left:50%;
+    left:70%;
+    letter-spacing:1.5px;
+    line-height:1.75;
+    font-size: 1.5rem;
+  }
+  .p1 {
+    width:500px;
+    left: 10%;
+    top: 25vh;
+    font-size:1.5rem;
   }
 }
